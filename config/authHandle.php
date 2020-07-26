@@ -4,7 +4,7 @@ function checkUser($con){
     if(isset($_COOKIE["user"])){
         $user =  $_COOKIE['user'];
 
-        $sql = "SELECT * FROM `users` WHERE `id` = $user"; 
+        $sql = "SELECT * FROM `users` WHERE `id` = $user and `status` = 1 "; 
         $result = mysqli_query($con, $sql);
         if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
