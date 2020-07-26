@@ -3,7 +3,6 @@ include_once 'config/db.php';
 include_once 'config/authHandle.php';
 
 $userData = checkUser($con);
-
 ?>
 
 <!DOCTYPE html>
@@ -143,7 +142,22 @@ $userData = checkUser($con);
                                     </div>
 
                                     <div class="card-body">
-                                        You are logged in!
+                                        <form action="changepassword.php" method="POST">
+                                           <label>Password</label>
+                                            <input type="password" name="password" class="form-control" required>
+                                            
+                                           <label>Confirm-Password</label>
+                                            <input type="password" name="cpassword" class="form-control" required>
+                                            
+                                            <br>
+                                            <input type="hidden" name="id" value="<?php echo $userData['userId']; ?>">
+                                            <input type="submit" name="submit" value="Change Password" class="btn btn-danger">
+                                        </form>
+                                        <?php
+                                        if (isset($_GET['error']) == 'true') {
+                                            echo "<p style='color: red; text-align: center; width: 100%; font-size: 15px;'>Password and Confirm-Password <b>Do Not Match</b></p>";
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -184,3 +198,20 @@ $userData = checkUser($con);
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['submit'])) {
+  echo  $id = $_POST['id'];
+   echo $password = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
+
+    if($password == $cpassword){
+        $sql = "UPDATE `users` SET `password`= '$password' WHERE `id` = '$id' ";
+        $result = mysqli_query($con, $sql);
+    
+        header('location: index.php');
+    }else{
+        header('Location: changepassword.php?error=true');
+    }
+}
+?>
