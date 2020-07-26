@@ -16,9 +16,14 @@ function checkUser($con){
             );
             return $userData;
         }
+        else{
+            logout();
+            header('Location: auth.php');
+        }
 
     }
     else{
+        logout();
         header('Location: auth.php');
     }
 }

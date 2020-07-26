@@ -145,7 +145,45 @@ if ($userData['userType'] != "ADMIN") {
                                     </div>
 
                                     <div class="card-body">
-                                        You are logged in!
+
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Permission</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $sql = "SELECT * FROM `users`";
+                                                $result = mysqli_query($con, $sql);
+                                                if (mysqli_num_rows($result) > 0) {
+                                                    while ($row = mysqli_fetch_array($result)) {
+                                                        if($row[5] == 1){
+                                                            $status = "<a href='config/changestatus.php?id=$row[0]&To=0'>Active</a>";
+                                                        }else {
+                                                            $status = "<a href='config/changestatus.php?id=$row[0]&To=1'>Non-Active</a>";
+                                                        }
+                                                        
+                                                        echo "
+                                                            <tr>
+                                                                <th scope='row'>$row[0]</th>
+                                                                <td>$row[1]</td>
+                                                                <td>$row[2]</td>
+                                                                <td>$row[4]</td>
+                                                                <td>$status</td>
+                                                            </tr>
+                                                        ";
+                                                    }
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                 </div>
                             </div>
