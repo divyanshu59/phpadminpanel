@@ -2,7 +2,8 @@
     include_once 'config/db.php';
     include_once 'config/authHandle.php';
 
-    checkUser();
+    $userData = checkUser($con);
     
+    echo $userData['userName'];
     
 ?>

@@ -1,8 +1,22 @@
 <?php
 
-function checkUser(){
+function checkUser($con){
     if(isset($_COOKIE["user"])){
         $user =  $_COOKIE['user'];
+
+        $sql = "SELECT * FROM `users` WHERE `id` = $user"; 
+        $result = mysqli_query($con, $sql);
+        if(mysqli_num_rows($result) > 0){
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            $userData = array(
+                "userId"=> $user,
+                "userName"=> $row['name'],
+                "userEmail"=> $row['email'],
+                "userType"=> $row['type'],
+            );
+            return $userData;
+        }
+
     }
     else{
         header('Location: auth.php');
