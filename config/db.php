@@ -1,15 +1,17 @@
 <?php
+ob_start();
+
 $servername = "localhost";
 $username = "admin";
 $password = "qwerty";
 $database = "phpadminpanel";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+$con = new mysqli($servername, $username, $password, $database);
 
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if ($con->connect_error) {
+  die("Connection failed: " . $con->connect_error);
 }
-echo "Connected successfully";
+//echo "Connected successfully";
 ?>

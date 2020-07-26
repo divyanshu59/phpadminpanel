@@ -1,7 +1,7 @@
 <?php
 
 function checkUser(){
-    if(isset($_COOKIE['user'])){
+    if(isset($_COOKIE["user"])){
         $user =  $_COOKIE['user'];
     }
     else{
@@ -14,4 +14,17 @@ function logout(){
     header('Location: auth.php');
 }
 
+
+function login($email, $password, $con){
+    $sql = "SELECT * FROM `users` WHERE `email` = '$email' and `password` = '$password' AND `status` = 1"; 
+    $result = mysqli_query($con, $sql);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        setcookie('user', $row['id'], time() + (86400 * 30), "/");
+        header('Location: index.php');
+    }
+    else{
+        header('Location: auth.php?error=true');
+    }
+}   
 ?>
