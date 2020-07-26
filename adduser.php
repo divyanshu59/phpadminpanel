@@ -145,7 +145,26 @@ if ($userData['userType'] != "ADMIN") {
                                     </div>
 
                                     <div class="card-body">
-                                        You are logged in!
+                                        <form action="adduser.php" method="POST">
+                                            <label>Name</label>
+                                            <input type="text" name="name" class="form-control" required>
+                                            <label>Email</label>
+                                            <input type="email" name="email" class="form-control" required>
+                                            <label>Password</label>
+                                            <input type="password" name="password" class="form-control" required>
+                                            <label>Permission</label>
+                                            <select name="type" class="form-control">
+                                                <option value="ADMIN">Admin</option>
+                                                <option value="User">User</option>
+                                            </select>
+                                            <br>
+                                            <input type="submit" name="submit" value="Add User" class="btn btn-warning">
+                                        </form>
+                                        <?php
+                                        if (isset($_GET['error']) == 'true') {
+                                            echo "<p style='color: red; text-align: center; width: 100%; font-size: 15px;'>Email already registred</p>";
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -186,3 +205,25 @@ if ($userData['userType'] != "ADMIN") {
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $type = $_POST['type'];
+
+
+    $sql = "SELECT * FROM `users` WHERE `email` = '$email' ";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        header('Location: adduser.php?error=true');
+    } else {
+        $sql1 = "INSERT INTO `users`(`name`, `email`, `password`, `type`, `status`)
+         VALUES ('$name','$email','$password','$type',1)";
+        $result1 = mysqli_query($con, $sql1);
+        header('Location: users.php');
+    }
+}
+
+?>
