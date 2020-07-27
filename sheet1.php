@@ -143,7 +143,24 @@ $userData = checkUser($con);
                                     </div>
 
                                     <div class="card-body">
-                                        You are logged in!
+                                        <?php
+                                        // From URL to get webpage contents. 
+                                        $url = "https://sheets.googleapis.com/v4/spreadsheets/1VbalJcOaDbu3-2HyFfY1VEfxuqAHUHuLg7c0gMlOiAg/values/Sheet1!A1:D5";
+
+                                        // Initialize a CURL session. 
+                                        $ch = curl_init();
+
+                                        // Return Page contents. 
+                                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+                                        //grab URL and pass it to the variable. 
+                                        curl_setopt($ch, CURLOPT_URL, $url);
+
+                                        $result = curl_exec($ch);
+
+                                        echo $result;
+
+                                        ?>
                                     </div>
                                 </div>
                             </div>
