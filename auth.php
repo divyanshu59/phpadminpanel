@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/auth.css">
     <script src="assets/js/auth.js"></script>
-    <title>Document</title>
+    <title>JaanAurJahan Admin Panel</title>
 </head>
 
 <body>
