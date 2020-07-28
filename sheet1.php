@@ -22,7 +22,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="xAt6bRT9oae06rTrZCLjfXwc2Cn4sOZZNNeYQDZj">
 
-    <title>Dashboard</title>
+    <title>JaanAurJahan</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
 
@@ -67,7 +67,7 @@ else{
 
         <div class="c-sidebar-brand d-md-down-none">
             <a class="c-sidebar-brand-full h4" href="#">
-                Dashboard
+                JaanAurJahan
             </a>
         </div>
 
@@ -148,7 +148,7 @@ else{
                 <i class="fas fa-fw fa-bars"></i>
             </button>
 
-            <a class="c-header-brand d-lg-none" href="#">Dashboard</a>
+            <a class="c-header-brand d-lg-none" href="#">JaanAurJahan</a>
 
             <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
                 <i class="fas fa-fw fa-bars"></i>
