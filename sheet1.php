@@ -4,6 +4,13 @@ include_once 'config/authHandle.php';
 
 $userData = checkUser($con);
 
+
+if(!isset($_GET['id'])){
+    header('Location: sheet1.php?id=0');
+}
+else{
+    $id = $_GET['id'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +23,10 @@ $userData = checkUser($con);
     <meta name="csrf-token" content="xAt6bRT9oae06rTrZCLjfXwc2Cn4sOZZNNeYQDZj">
 
     <title>Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
@@ -30,6 +41,25 @@ $userData = checkUser($con);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" rel="stylesheet" />
     <link href="https://17835-546363217e5fb4b5.2019.quickadminpanel.com/css/custom.css" rel="stylesheet" />
+    <!-- Grid -->
+    <!-- Load jQuery and Sheetrock from CDNJS -->
+
+    <style>
+        #box {
+            overflow: scroll !important;
+            width: 100% !important;
+            height: 80vh !important;
+        }
+
+        .btn-group {
+            overflow-x: scroll;
+            width: 100% !important;
+        }
+
+        .btn {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body class="c-app">
@@ -139,28 +169,23 @@ $userData = checkUser($con);
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        Sheet 1
+                                        <div class="btn-group">
+                                            <a type="button" href="?id=0" class="btn ">BSS</a>
+                                            <a type="button" href="?id=1165994494" class="btn">Covid Control</a>
+                                            <a type="button" href="?id=410674427" class="btn ">Observer</a>
+                                            <a type="button" href="?id=1037639889" class="btn">Monthly BSS Chart</a>
+                                            <a type="button" href="?id=753943982" class="btn ">Monthly Covid Chart</a>
+                                            <a type="button" href="?id=1061880492" class="btn ">Observation Monthly</a>
+                                            <a type="button" href="?id=426727338" class="btn">Suraksha</a>
+                                            <a type="button" href="?id=1037259284" class="btn ">Observer Wise BSS</a>
+                                            <a type="button" href="?id=365196969" class="btn ">Details-5</a>
+                                        </div>
                                     </div>
 
                                     <div class="card-body">
-                                        <?php
-                                        // From URL to get webpage contents. 
-                                        $url = "https://sheets.googleapis.com/v4/spreadsheets/1VbalJcOaDbu3-2HyFfY1VEfxuqAHUHuLg7c0gMlOiAg/values/Sheet1!A1:D5";
-
-                                        // Initialize a CURL session. 
-                                        $ch = curl_init();
-
-                                        // Return Page contents. 
-                                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-                                        //grab URL and pass it to the variable. 
-                                        curl_setopt($ch, CURLOPT_URL, $url);
-
-                                        $result = curl_exec($ch);
-
-                                        echo $result;
-
-                                        ?>
+                                        <div id="box">
+                                            <table id="statistics" class="table  table-condensed table-striped"></table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -174,30 +199,22 @@ $userData = checkUser($con);
 
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js"></script>
-    <script src="https://unpkg.com/@coreui/coreui@3.2/dist/js/coreui.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.colVis.min.js"></script>
-    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
-    <script src="https://17835-546363217e5fb4b5.2019.quickadminpanel.com/js/main.js"></script>
+
 
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js"></script>
+<script src="https://unpkg.com/@coreui/coreui@3.2/dist/js/coreui.min.js"></script>
+
+
+<script>
+    var id = <?php echo $id; ?>;
+    var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1VbalJcOaDbu3-2HyFfY1VEfxuqAHUHuLg7c0gMlOiAg/edit#gid=' + id;
+    // Load an entire worksheet.
+    $('#statistics').sheetrock({
+        url: mySpreadsheet
+    });
+
+</script>
 
 </html>
