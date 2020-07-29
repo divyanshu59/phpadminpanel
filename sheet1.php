@@ -220,6 +220,7 @@ else{
                                         <div id="box">
                                             <table id="statistics" class="table  table-condensed table-striped"></table>
                                         </div>
+                                        <a id="downloadLink" class="btn btn-warning" style="float: right; color:white; border: none;" onclick="exportF(this)">Export to excel</a>
                                     </div>
                                 </div>
                             </div>
@@ -249,6 +250,14 @@ else{
         url: mySpreadsheet
     });
 
+function exportF(elem) {
+  var table = document.getElementById("statistics");
+  var html = table.outerHTML;
+  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+  elem.setAttribute("href", url);
+  elem.setAttribute("download", "export.xls"); // Choose the file name
+  return false;
+}
 </script>
 
 </html>
