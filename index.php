@@ -15,7 +15,7 @@ $userData = checkUser($con);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="xAt6bRT9oae06rTrZCLjfXwc2Cn4sOZZNNeYQDZj">
 
-    <title>JaanAurJahan</title>
+    <title>JAAN AUR JAHAN</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
@@ -30,6 +30,21 @@ $userData = checkUser($con);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" rel="stylesheet" />
     <link href="https://17835-546363217e5fb4b5.2019.quickadminpanel.com/css/custom.css" rel="stylesheet" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+    .c-sidebar{
+        background-color: #2890b0 !important;
+    }
+    .c-header{
+        background-color: #2890b0 !important;
+    }
+    </style>
+
+
 </head>
 
 <body class="c-app">
@@ -37,7 +52,7 @@ $userData = checkUser($con);
 
         <div class="c-sidebar-brand d-md-down-none">
             <a class="c-sidebar-brand-full h4" href="#">
-                JaanAurJahan
+                JAAN AUR JAHAN
             </a>
         </div>
 
@@ -83,19 +98,45 @@ $userData = checkUser($con);
                     <i class="fa-fw fas fa-briefcase c-sidebar-nav-icon">
 
                     </i>
-                    Sheets
+                    Reports
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
                     <li class="c-sidebar-nav-item">
                         <a href="sheet1.php" class="c-sidebar-nav-link ">
                             <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Sheet 1
+                            Rupapur
+							
+						
                         </a>
                     </li>
 
-
                 </ul>
-            </li>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                        <a href="" class="c-sidebar-nav-link ">
+                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
+                            Loni
+                        </a>
+                    </li>
+                </ul>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                        <a href="" class="c-sidebar-nav-link ">
+                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
+                            Ajbapur
+                        </a>
+                    </li>
+                </ul>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                        <a href="" class="c-sidebar-nav-link ">
+                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
+                            Hariawan
+                        </a>
+                    </li>
+                </ul>
+                
+           
             <li class="c-sidebar-nav-item">
                 <a class="c-sidebar-nav-link " href="changepassword.php">
                     <i class="fa-fw fas fa-key c-sidebar-nav-icon">
@@ -118,7 +159,7 @@ $userData = checkUser($con);
                 <i class="fas fa-fw fa-bars"></i>
             </button>
 
-            <a class="c-header-brand d-lg-none" href="#">JaanAurJahan</a>
+            <a class="c-header-brand d-lg-none" href="#">JAAN AUR JAHAN</a>
 
             <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
                 <i class="fas fa-fw fa-bars"></i>
@@ -139,7 +180,7 @@ $userData = checkUser($con);
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        JaanAurJahan
+                                        Jaan AUR JAHAN
                                     </div>
 
                                     <div class="card-body">

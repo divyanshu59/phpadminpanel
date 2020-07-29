@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/auth.css">
     <script src="assets/js/auth.js"></script>
-    <title>JaanAurJahan Admin Panel</title>
+    <title>JAAN AUR JAHAN Admin Panel</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col-md-12">
-                    <h2 class="text-center mt-3">JaanAurJahan</h2>
+                    <h2 class="text-center mt-3">JAAN AUR JAHAN</h2>
                     <h4 class="text-center mt-3">Sign in</h4>
                     <form action="auth.php" id="contact-form" method="POST" class="main-form needs-validation" role="form" novalidate>
 

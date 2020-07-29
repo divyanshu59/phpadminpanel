@@ -22,7 +22,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="xAt6bRT9oae06rTrZCLjfXwc2Cn4sOZZNNeYQDZj">
 
-    <title>JaanAurJahan</title>
+    <title>JAAN AUR JAHAN</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
 
@@ -43,8 +43,18 @@ else{
     <link href="https://17835-546363217e5fb4b5.2019.quickadminpanel.com/css/custom.css" rel="stylesheet" />
     <!-- Grid -->
     <!-- Load jQuery and Sheetrock from CDNJS -->
-
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <style>
+    .c-sidebar{
+        background-color: #2890b0 !important;
+    }
+    .c-header{
+        background-color: #2890b0 !important;
+    }
+    
         #box {
             overflow: scroll !important;
             width: 100% !important;
@@ -67,7 +77,7 @@ else{
 
         <div class="c-sidebar-brand d-md-down-none">
             <a class="c-sidebar-brand-full h4" href="#">
-                JaanAurJahan
+                JAAN AUR JAHAN
             </a>
         </div>
 
@@ -113,17 +123,41 @@ else{
                     <i class="fa-fw fas fa-briefcase c-sidebar-nav-icon">
 
                     </i>
-                    Sheets
+                    Report
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
                     <li class="c-sidebar-nav-item">
                         <a href="sheet1.php" class="c-sidebar-nav-link ">
                             <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Sheet 1
+                            Rupapur
                         </a>
                     </li>
 
 
+                </ul>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                        <a href="" class="c-sidebar-nav-link ">
+                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
+                            Loni
+                        </a>
+                    </li>
+                </ul>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                        <a href="" class="c-sidebar-nav-link ">
+                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
+                            Ajbapur
+                        </a>
+                    </li>
+                </ul>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                        <a href="" class="c-sidebar-nav-link ">
+                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
+                            Hariawan
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="c-sidebar-nav-item">

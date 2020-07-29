@@ -2,9 +2,9 @@
 ob_start();
 
 $servername = "localhost";
-$username = "admin";
-$password = "qwerty";
-$database = "phpadminpanel";
+$username = "adminpanel";
+$password = "Ky8*2iv2";
+$database = "adminpanel";
 
 // Create connection
 $con = new mysqli($servername, $username, $password, $database);
