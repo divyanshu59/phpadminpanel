@@ -3,6 +3,17 @@ include_once 'config/db.php';
 include_once 'config/authHandle.php';
 
 $userData = checkUser($con);
+
+$sql = "SELECT * FROM `details` WHERE `id` = 0 ";
+$result = mysqli_query($con, $sql);
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_array($result);
+    $TOb = $row[1];
+    $TW = $row[2];
+    $TCL = $row[3];
+    $TBBSL = $row[4];
+    $TS = $row[5];
+}
 ?>
 
 <!DOCTYPE html>
@@ -176,20 +187,28 @@ $userData = checkUser($con);
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        Change Password
+                                        Update Data
                                     </div>
 
                                     <div class="card-body">
-                                        <form action="changepassword.php" method="POST">
-                                           <label>Password</label>
-                                            <input type="password" name="password" class="form-control" required>
+                                        <form action="updatedata.php" method="POST">
+                                           <label>Total Observers</label>
+                                            <input type="number" name="TOb" value="<?php echo $TOb; ?>" class="form-control" required>
                                             
-                                           <label>Confirm-Password</label>
-                                            <input type="password" name="cpassword" class="form-control" required>
+                                           <label>Total Warriors</label>
+                                            <input type="number" name="TW" value="<?php echo $TW; ?>"  class="form-control" required>
+                                            
+                                           <label>Total Covid locations</label>
+                                            <input type="number" name="TCL" value="<?php echo $TCL; ?>"  class="form-control" required>
+                                            
+                                           <label>Total BBS locations</label>
+                                            <input type="number" name="TBSSL" value="<?php echo $TBBSL; ?>"  class="form-control" required>
+                                            
+                                           <label>Total Suggestion</label>
+                                            <input type="number" name="TS" value="<?php echo $TW; ?>" class="form-control" required>
                                             
                                             <br>
-                                            <input type="hidden" name="id" value="<?php echo $userData['userId']; ?>">
-                                            <input type="submit" name="submit" value="Change Password" class="btn btn-danger">
+                                            <input type="submit" name="submit" value="Update Data" class="btn btn-danger">
                                         </form>
                                         <?php
                                         if (isset($_GET['error']) == 'true') {
@@ -239,17 +258,15 @@ $userData = checkUser($con);
 
 <?php
 if (isset($_POST['submit'])) {
-    $id = $_POST['id'];
-    $password = $_POST['password'];
-    $cpassword = $_POST['cpassword'];
+    $TOb = $_POST['TOb'];
+    $TW = $_POST['TW'];
+    $TCL = $_POST['TCL'];
+    $TBSSL = $_POST['TBSSL'];
+    $TS = $_POST['TS'];
 
-    if($password == $cpassword){
-        $sql = "UPDATE `users` SET `password`= '$password' WHERE `id` = '$id' ";
+        $sql = "UPDATE `details` SET `TOb`=$TOb,`TW`=$TW,`TCL`=$TCL,`TBSSL`= $TBBSL,`TS`= $TS WHERE `id` = 0";
         $result = mysqli_query($con, $sql);
     
         header('location: index.php');
-    }else{
-        header('Location: changepassword.php?error=true');
-    }
 }
 ?>

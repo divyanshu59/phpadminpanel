@@ -4,6 +4,17 @@ include_once 'config/authHandle.php';
 
 $userData = checkUser($con);
 
+$sql = "SELECT * FROM `details` WHERE `id` = 0 ";
+$result = mysqli_query($con, $sql);
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_array($result);
+    $TOb = $row[1];
+    $TW = $row[2];
+    $TCL = $row[3];
+    $TBSSL = $row[4];
+    $TS = $row[5];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +52,13 @@ $userData = checkUser($con);
     }
     .c-header{
         background-color: #2890b0 !important;
+    }
+    .cardinner{
+        background-color: #2890b0 !important;
+        color: white;
+    }
+    .card-text{
+        font-size: 20px;
     }
     </style>
 
@@ -180,11 +198,58 @@ $userData = checkUser($con);
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
+                                    <?php if ($userData['userType'] == "ADMIN") { ?> 
+                                        <a style="float:right;" href="updatedata.php">Update Data</a>
+                                    <?php } ?>
                                         Jaan AUR JAHAN
                                     </div>
 
                                     <div class="card-body">
-                                        You are logged in!
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="card cardinner">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Total Observers</h4>
+                                                        <p class="card-text"><?php echo $TOb ?></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card cardinner">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Total Warriors</h4>
+                                                        <p class="card-text"><?php echo $TW ?></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card cardinner">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Total Covid locations</h4>
+                                                        <p class="card-text"><?php echo $TCL ?></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card cardinner">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Total BBS locations</h4>
+                                                        <p class="card-text"><?php echo $TBSSL ?></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card cardinner">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Total Suggestion</h4>
+                                                        <p class="card-text"><?php echo $TS ?></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
