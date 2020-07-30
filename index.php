@@ -6,6 +6,7 @@ $userData = checkUser($con);
 
 $sql = "SELECT * FROM `details` WHERE `id` = 0 ";
 $result = mysqli_query($con, $sql);
+$row = array();
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_array($result);
     $TOb = $row[1];
@@ -13,6 +14,42 @@ if (mysqli_num_rows($result) > 0) {
     $TCL = $row[3];
     $TBSSL = $row[4];
     $TS = $row[5];
+}
+
+$sql = "SELECT * FROM `details` WHERE `id` = 1 ";
+$result = mysqli_query($con, $sql);
+$row = array();
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_array($result);
+    $TOb1 = $row[1];
+    $TW1 = $row[2];
+    $TCL1 = $row[3];
+    $TBSSL1 = $row[4];
+    $TS1 = $row[5];
+}
+
+$sql = "SELECT * FROM `details` WHERE `id` = 2 ";
+$result = mysqli_query($con, $sql);
+$row = array();
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_array($result);
+    $TOb2 = $row[1];
+    $TW2 = $row[2];
+    $TCL2 = $row[3];
+    $TBSSL2 = $row[4];
+    $TS2 = $row[5];
+}
+
+$sql = "SELECT * FROM `details` WHERE `id` = 3 ";
+$result = mysqli_query($con, $sql);
+$row = array();
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_array($result);
+    $TOb3 = $row[1];
+    $TW3 = $row[2];
+    $TCL3 = $row[3];
+    $TBSSL3 = $row[4];
+    $TS3 = $row[5];
 }
 
 ?>
@@ -42,6 +79,10 @@ if (mysqli_num_rows($result) > 0) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" rel="stylesheet" />
     <link href="https://17835-546363217e5fb4b5.2019.quickadminpanel.com/css/custom.css" rel="stylesheet" />
     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -205,49 +246,201 @@ if (mysqli_num_rows($result) > 0) {
                                     </div>
 
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="card cardinner">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Total Observers</h4>
-                                                        <p class="card-text"><?php echo $TOb ?></p>
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a data-toggle="tab" href="#home">Rupapur</a></li>
+                                            <li><a data-toggle="tab" href="#menu1">Loni</a></li>
+                                            <li><a data-toggle="tab" href="#menu2">Ajbapur</a></li>
+                                            <li><a data-toggle="tab" href="#menu3">Hariawan</a></li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div id="home" class="tab-pane fade in active">
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Observers</h4>
+                                                                    <p class="card-text"><?php echo $TOb ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Warriors</h4>
+                                                                    <p class="card-text"><?php echo $TW ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Covid locations</h4>
+                                                                    <p class="card-text"><?php echo $TCL ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total BBS locations</h4>
+                                                                    <p class="card-text"><?php echo $TBSSL ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Suggestion</h4>
+                                                                    <p class="card-text"><?php echo $TS ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="card cardinner">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Total Warriors</h4>
-                                                        <p class="card-text"><?php echo $TW ?></p>
+                                            <div id="menu1" class="tab-pane fade">
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Observers</h4>
+                                                                    <p class="card-text"><?php echo $TOb1 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Warriors</h4>
+                                                                    <p class="card-text"><?php echo $TW1 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Covid locations</h4>
+                                                                    <p class="card-text"><?php echo $TCL1 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total BBS locations</h4>
+                                                                    <p class="card-text"><?php echo $TBSSL1 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Suggestion</h4>
+                                                                    <p class="card-text"><?php echo $TS1 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="card cardinner">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Total Covid locations</h4>
-                                                        <p class="card-text"><?php echo $TCL ?></p>
+                                            <div id="menu2" class="tab-pane fade">
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Observers</h4>
+                                                                    <p class="card-text"><?php echo $TOb2 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Warriors</h4>
+                                                                    <p class="card-text"><?php echo $TW2 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Covid locations</h4>
+                                                                    <p class="card-text"><?php echo $TCL2 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total BBS locations</h4>
+                                                                    <p class="card-text"><?php echo $TBSSL2 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Suggestion</h4>
+                                                                    <p class="card-text"><?php echo $TS2 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                             </div>
-                                            
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="card cardinner">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Total BBS locations</h4>
-                                                        <p class="card-text"><?php echo $TBSSL ?></p>
+                                            <div id="menu3" class="tab-pane fade">
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Observers</h4>
+                                                                    <p class="card-text"><?php echo $TOb3 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Warriors</h4>
+                                                                    <p class="card-text"><?php echo $TW3 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Covid locations</h4>
+                                                                    <p class="card-text"><?php echo $TCL3 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="card cardinner">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Total Suggestion</h4>
-                                                        <p class="card-text"><?php echo $TS ?></p>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total BBS locations</h4>
+                                                                    <p class="card-text"><?php echo $TBSSL3 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="card cardinner">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Total Suggestion</h4>
+                                                                    <p class="card-text"><?php echo $TS3 ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

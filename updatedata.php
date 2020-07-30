@@ -193,20 +193,27 @@ if (mysqli_num_rows($result) > 0) {
                                     <div class="card-body">
                                         <form action="updatedata.php" method="POST">
                                            <label>Total Observers</label>
-                                            <input type="number" name="TOb" value="<?php echo $TOb; ?>" class="form-control" required>
+                                            <input type="number" name="TOb"  class="form-control" required>
                                             
                                            <label>Total Warriors</label>
-                                            <input type="number" name="TW" value="<?php echo $TW; ?>"  class="form-control" required>
+                                            <input type="number" name="TW"  class="form-control" required>
                                             
                                            <label>Total Covid locations</label>
-                                            <input type="number" name="TCL" value="<?php echo $TCL; ?>"  class="form-control" required>
+                                            <input type="number" name="TCL"  class="form-control" required>
                                             
                                            <label>Total BBS locations</label>
-                                            <input type="number" name="TBSSL" value="<?php echo $TBBSL; ?>"  class="form-control" required>
+                                            <input type="number" name="TBSSL"  class="form-control" required>
                                             
                                            <label>Total Suggestion</label>
-                                            <input type="number" name="TS" value="<?php echo $TW; ?>" class="form-control" required>
+                                            <input type="number" name="TS" class="form-control" required>
                                             
+                                            <label>Select Report</label>
+                                            <select class="form-control" name="city">
+                                                <option value="0">Rupapur</option>
+                                                <option value="1">Loni</option>
+                                                <option value="2">Ajbapur</option>
+                                                <option value="3">Hariawan</option>
+                                            </select>
                                             <br>
                                             <input type="submit" name="submit" value="Update Data" class="btn btn-danger">
                                         </form>
@@ -263,8 +270,9 @@ if (isset($_POST['submit'])) {
     $TCL = $_POST['TCL'];
     $TBSSL = $_POST['TBSSL'];
     $TS = $_POST['TS'];
+    $city = $_POST['city'];
 
-        $sql = "UPDATE `details` SET `TOb`=$TOb,`TW`=$TW,`TCL`=$TCL,`TBSSL`= $TBBSL,`TS`= $TS WHERE `id` = 0";
+        $sql = "UPDATE `details` SET `TOb`=$TOb,`TW`=$TW,`TCL`=$TCL,`TBSSL`= $TBBSL,`TS`= $TS WHERE `id` = $city";
         $result = mysqli_query($con, $sql);
     
         header('location: index.php');
