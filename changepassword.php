@@ -139,40 +139,7 @@ $userData = checkUser($con);
                         </a>
                     </li>
                 </ul>
-                <?php } ?><ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item">
-                        <a href="sheet1.php" class="c-sidebar-nav-link ">
-                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Rupapur
-                        </a>
-                    </li>
-
-
-                </ul>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item">
-                        <a href="" class="c-sidebar-nav-link ">
-                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Loni
-                        </a>
-                    </li>
-                </ul>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item">
-                        <a href="" class="c-sidebar-nav-link ">
-                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Ajbapur
-                        </a>
-                    </li>
-                </ul>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item">
-                        <a href="" class="c-sidebar-nav-link ">
-                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Hariawan
-                        </a>
-                    </li>
-                </ul>
+                <?php } ?>
             </li>
             <li class="c-sidebar-nav-item">
                 <a class="c-sidebar-nav-link " href="changepassword.php">

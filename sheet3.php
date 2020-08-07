@@ -167,46 +167,8 @@ else{
                     </li>
                 </ul>
                 <?php } ?> 
-                <?php if($userData['permission'][1] == 1){ ?>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item">
-                        <a href="sheet1.php" class="c-sidebar-nav-link ">
-                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Rupapur
-							
-						
-                        </a>
-                    </li>
-
-                </ul>
-                <?php }if($userData['permission'][2] == 1){ ?>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item">
-                        <a href="sheet2.php" class="c-sidebar-nav-link ">
-                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Loni
-                        </a>
-                    </li>
-                </ul>
-                <?php }if($userData['permission'][3] == 1){ ?>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item">
-                        <a href="sheet3.php" class="c-sidebar-nav-link ">
-                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Ajbapur
-                        </a>
-                    </li>
-                </ul>
-                <?php }if($userData['permission'][4] == 1){ ?>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item">
-                        <a href="sheet4.php" class="c-sidebar-nav-link ">
-                            <i class="fa-fw fas fa-folder c-sidebar-nav-icon"></i>
-                            Hariawan
-                        </a>
-                    </li>
-                </ul>
-                <?php } ?>
+             
+               
             </li>
             <li class="c-sidebar-nav-item">
                 <a class="c-sidebar-nav-link " href="changepassword.php">
